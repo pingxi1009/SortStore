@@ -45,8 +45,23 @@ int BubbleSort(double *arr, int arrLenth)
 }
 
 /*********** ≤Â»Î≈≈–Ú ***********/
-int InsertSore(double *arr, int arrLenth)
+int InsertSort(double *arr, int arrLenth)
 {
+	int i, j;
+	int temp;
+	for (i = 1 ; i < arrLenth ; i++)
+	{
+		if (arr[i-1] > arr[i])
+		{
+			temp = arr[i];
+			for (j = i-1 ; j >=0 && arr[j] > arr[i] ; j--)
+			{
+				arr[j+1] = arr[j];
+			}
+			arr[j+1] = temp;
+		}
+	}
+
 	return 0;
 }
 

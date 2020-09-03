@@ -17,7 +17,10 @@ int main()
 
 
 	// —°‘Ò≈≈–Ú
-	SelecteSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// SelecteSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// ≤Â»Î≈≈–Ú
+	InsertSort(arr, sizeof(arr) / sizeof(arr[0]));
+	
 
 
 	// ≤‚ ‘Demo£∫≈≈–Ú∫Û

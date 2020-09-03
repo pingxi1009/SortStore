@@ -22,7 +22,7 @@ int SelecteSort(double *arr, int arrLenth);
 int BubbleSort(double *arr, int arrLenth);
 
 /*********** ≤Â»Î≈≈–Ú ***********/
-int InsertSore(double *arr, int arrLenth);
+int InsertSort(double *arr, int arrLenth);
 
 /*********** œ£∂˚≈≈–Ú ***********/
 int ShellSort(double *arr, int arrLenth);
