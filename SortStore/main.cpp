@@ -7,7 +7,7 @@ int main()
 {
 	cout << "hello" << endl;
 
-	double arr[10] = { 0, 5, 1.1, 4.3, 18, 9, 51, 103, -12.5, -21 };
+	double arr[] = { 0, 5, 1.1, 4.3, 18, 9, 51, 103, -12.5, -21 };
 
 	// ²âÊÔDemo£ºÅÅĞòÇ°
 	cout << "Sort Befour:";
@@ -19,7 +19,9 @@ int main()
 	// Ñ¡ÔñÅÅĞò
 	// SelecteSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// ²åÈëÅÅĞò
-	InsertSort(arr, sizeof(arr) / sizeof(arr[0]));
+	//InsertSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// Ã°ÅİÅÅĞò
+	BubbleSort(arr, sizeof(arr) / sizeof(arr[0]));
 	
 
 

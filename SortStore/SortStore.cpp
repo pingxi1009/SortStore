@@ -41,6 +41,16 @@ int SelecteSort(double *arr, int arrLenth)
 /*********** 冒泡排序 ***********/
 int BubbleSort(double *arr, int arrLenth)
 {
+	int i, j;
+	for (i = 0 ; i < arrLenth ; i++)
+	{
+		for (j = arrLenth - 1 - 1 ; j >= i ; j--)
+		{
+			if(arr[j] > arr[j+1])
+				SwapNum(arr[j], arr[j+1]);
+		}
+	}
+
 	return 0;
 }
 
@@ -54,7 +64,7 @@ int InsertSort(double *arr, int arrLenth)
 		if (arr[i-1] > arr[i])
 		{
 			temp = arr[i];
-			for (j = i-1 ; j >=0 && arr[j] > arr[i] ; j--)
+			for (j = i-1 ; j >=0 && arr[j] > temp; j--)
 			{
 				arr[j+1] = arr[j];
 			}
@@ -68,6 +78,25 @@ int InsertSort(double *arr, int arrLenth)
 /*********** 希尔排序 ***********/
 int ShellSort(double *arr, int arrLenth)
 {
+	int i, j;
+	int increment = arrLenth;
+	do 
+	{
+		increment = increment / 3;
+		for (i = increment+1 ; i < arrLenth ; i = i + increment)
+		{
+			int temp = arr[i];
+			if ()	// 还没搞好，还需要加深理解
+			{
+			}
+			for (j = arrLenth - 1 ; j >= 0 && arr[j] > arr[i] ; )
+			{
+			}
+		}
+
+
+	} while (increment >0);
+
 	return 0;
 }
 
