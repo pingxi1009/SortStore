@@ -19,9 +19,11 @@ int main()
 	// —°‘Ò≈≈–Ú
 	// SelecteSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// ≤Â»Î≈≈–Ú
-	//InsertSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// InsertSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// √∞≈›≈≈–Ú
-	BubbleSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// BubbleSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// œ£∂˚≈≈–Ú
+	ShellSort(arr, sizeof(arr) / sizeof(arr[0]));
 	
 
 

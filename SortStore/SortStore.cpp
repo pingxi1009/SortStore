@@ -80,22 +80,23 @@ int ShellSort(double *arr, int arrLenth)
 {
 	int i, j;
 	int increment = arrLenth;
-	do 
+	
+	for (increment = increment / 3; increment >= 1; increment = increment / 3)
 	{
-		increment = increment / 3;
-		for (i = increment+1 ; i < arrLenth ; i = i + increment)
+		for (i = 0; i < arrLenth - increment; i++)
 		{
-			int temp = arr[i];
-			if ()	// 还没搞好，还需要加深理解
+			if (arr[i] > arr[i + increment])
 			{
+				int temp = arr[i + increment];
+				for (j = i; j >= 0 && arr[j] > temp; j -= increment)
+				{
+					arr[j + increment] = arr[j];
+				}
+				arr[j + increment] = temp;
 			}
-			for (j = arrLenth - 1 ; j >= 0 && arr[j] > arr[i] ; )
-			{
-			}
+
 		}
-
-
-	} while (increment >0);
+	}
 
 	return 0;
 }
