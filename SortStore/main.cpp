@@ -23,7 +23,9 @@ int main()
 	// √∞≈›≈≈–Ú
 	// BubbleSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// œ£∂˚≈≈–Ú
-	ShellSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// ShellSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// ∂—≈≈–Ú
+	HeapSort2(arr, sizeof(arr) / sizeof(arr[0]));
 	
 
 

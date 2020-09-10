@@ -58,7 +58,7 @@ int BubbleSort(double *arr, int arrLenth)
 int InsertSort(double *arr, int arrLenth)
 {
 	int i, j;
-	int temp;
+	double temp;
 	for (i = 1 ; i < arrLenth ; i++)
 	{
 		if (arr[i-1] > arr[i])
@@ -87,7 +87,7 @@ int ShellSort(double *arr, int arrLenth)
 		{
 			if (arr[i] > arr[i + increment])
 			{
-				int temp = arr[i + increment];
+				double temp = arr[i + increment];
 				for (j = i; j >= 0 && arr[j] > temp; j -= increment)
 				{
 					arr[j + increment] = arr[j];
@@ -102,7 +102,62 @@ int ShellSort(double *arr, int arrLenth)
 }
 
 /***********  堆排序  ***********/
+int HeapAdjust(double *arr, int arrLenth)
+{
+
+
+	return 0;
+}
+
 int HeapSort(double *arr, int arrLenth)
 {
+	return 0;
+}
+
+// 堆排序
+// 交换
+int lenth;
+void Swap(double *arr, int i, int j)
+{
+	double temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
+}
+
+// 调整堆
+void HeapIfy(double *arr, int i)
+{
+	int key = 2 * i + 1;
+	if (key < lenth - 1 && arr[key] < arr[key + 1])
+		key++;
+	if (key < lenth && arr[key] > arr[i])
+	{
+		Swap(arr, i, key);
+		HeapIfy(arr, key);
+	}
+}
+
+// 建最大堆
+void BuildMaxHeap(double *arr)
+{
+	if (lenth <= 0)
+		return;
+	for (int i = lenth / 2; i >= 0; i--)
+	{
+		HeapIfy(arr, i);
+	}
+}
+
+// 开始排序
+int HeapSort2(double *arr, int size)
+{
+	lenth = size;
+	BuildMaxHeap(arr);
+	for (int i = size - 1; i > 0; i--)
+	{
+		Swap(arr, 0, i);
+		lenth--;
+		HeapIfy(arr, 0);
+	}
 	return 0;
 }
