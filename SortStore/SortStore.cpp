@@ -102,15 +102,40 @@ int ShellSort(double *arr, int arrLenth)
 }
 
 /***********  ¶ÑÅÅĞò  ***********/
-int HeapAdjust(double *arr, int arrLenth)
+void Swap(double &arr1, double &arr2)
 {
+	double temp = arr1;
+	arr1 = arr2;
+	arr2 = temp;
+}
 
+// µ÷Õû¶Ñ
+int HeapAdjust(double *arr, int dad,int end)
+{
+	for (int son = 2 * dad + 1; son < end; son = 2 * dad + 1)
+	{
+		if (son + 1 < end && arr[son] < arr[son + 1])
+			++son;
+		if (arr[dad] > arr[son])
+			return 0;
+		Swap(arr[dad], arr[son]);
+		dad = son;
+	}
 
 	return 0;
 }
 
+// ¶ÑÅÅĞò
 int HeapSort(double *arr, int arrLenth)
 {
+	for (int i = arrLenth/2-1 ; i >=0 ; i--)
+		HeapAdjust(arr, i, arrLenth);			// ½¨¶Ñ
+	for (int i = arrLenth-1 ; i >=1 ; i--)
+	{
+		Swap(arr[0], arr[i]);
+		HeapAdjust(arr, 0, i - 1);
+	}
+
 	return 0;
 }
 

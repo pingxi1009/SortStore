@@ -5,9 +5,12 @@ using namespace std;
 
 int main()
 {
-	cout << "hello" << endl;
-
-	double arr[] = { 0, 5, 1.1, 4.3, 18, 9, 51, 103, -12.5, -21 };
+	// cout << "hello" << endl;
+	cout << endl;
+	cout << "-------------------------------------------------------------------------------------" << endl;
+	cout << "                                               " << endl;
+	// double arr[] = { 0, 5, 1.1, 4.3, 18, 9, 51, 103, -12.5, -21 };
+	double arr[] = { 8, 1, 2, 5, 6, 4, 7, 9, 0, 3 };
 
 	// ²âÊÔDemo£ºÅÅÐòÇ°
 	cout << "Sort Befour:";
@@ -25,7 +28,7 @@ int main()
 	// Ï£¶ûÅÅÐò
 	// ShellSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// ¶ÑÅÅÐò
-	HeapSort2(arr, sizeof(arr) / sizeof(arr[0]));
+	HeapSort(arr, sizeof(arr) / sizeof(arr[0]));
 	
 
 
@@ -33,6 +36,10 @@ int main()
 	cout << "Sort  After:";
 	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
 		printf("%7.1f", arr[i]);
+	cout << endl;
+
+	cout << "                                               " << endl;
+	cout << "-------------------------------------------------------------------------------------" << endl;
 	cout << endl;
 
 
