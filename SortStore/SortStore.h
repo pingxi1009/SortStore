@@ -31,4 +31,7 @@ int ShellSort(double *arr, int arrLenth);
 int HeapSort(double *arr, int arrLenth);
 int HeapSort2(double *arr, int arrLenth);
 
+/***********  ∂—≈≈–Ú  ***********/
+int MergeSort(double *arr, int arrLenth);
+
 

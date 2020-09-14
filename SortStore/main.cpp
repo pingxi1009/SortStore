@@ -28,7 +28,9 @@ int main()
 	// œ£∂˚≈≈–Ú
 	// ShellSort(arr, sizeof(arr) / sizeof(arr[0]));
 	// ∂—≈≈–Ú
-	HeapSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// HeapSort(arr, sizeof(arr) / sizeof(arr[0]));
+	// πÈ≤¢≈≈–Ú
+	MergeSort(arr, sizeof(arr) / sizeof(arr[0]));
 	
 
 
@@ -41,6 +43,7 @@ int main()
 	cout << "                                               " << endl;
 	cout << "-------------------------------------------------------------------------------------" << endl;
 	cout << endl;
+
 
 
 	return 0;
