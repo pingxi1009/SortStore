@@ -194,17 +194,17 @@ int Merge(double *SR, double *TR, int i, int m, int n, int arrMaxLenth)
 	int j, k, e;
 	for (j = m+1 , k = i ; i <= m && j <= n ; k++)
 	{
-		if (SR[i] > SR[j] && j < arrMaxLenth)
+		if (SR[i] > SR[j] && j < arrMaxLenth)	// 注意边界条件
 			TR[k] = SR[j++];
 		else
 			TR[k] = SR[i++];
 	}
-	if (i <= m)
+	if (i <= m)									// 前半段有多余的直接加到后面
 	{
 		for (e = 0 ; e <= m - i ; e++, k++)
 			TR[k] = SR[i + e];
 	}
-	if (j <= n && j < arrMaxLenth)
+	if (j <= n && j < arrMaxLenth)				// 后半段有多余的直接加到后面，注意边界条件
 	{
 		for (e = 0 ; e <= n - j ; e++, k++)
 			TR[k] = SR[j + e];
@@ -216,16 +216,16 @@ int Merge(double *SR, double *TR, int i, int m, int n, int arrMaxLenth)
 int MSort(double *SR, double *TR1, int s, int t, int arrMaxLenth)
 {
 	int m;
-	if (s == t && t < arrMaxLenth)
+	if (s == t && t < arrMaxLenth)				// 注意边界条件
 		TR1[s] = SR[s];
 	else if(t > s)
 	{
-		double *TR2 = new double[t+1];		// 本想定义数组，但是数组定义是长度必须是常量，所以参考网友的申请一段内存
+		double *TR2 = new double[t+1];			// 申请一段内存
 		m = (s + t) / 2;
 		MSort(SR, TR2, s, m, arrMaxLenth);
 		MSort(SR, TR2, m + 1, t, arrMaxLenth);
 		Merge(TR2, TR1, s, m, t, arrMaxLenth);
-		delete[] TR2;
+		delete[] TR2;							// 释放申请的内存
 	}
 	return 0;
 }
@@ -233,7 +233,7 @@ int MSort(double *SR, double *TR1, int s, int t, int arrMaxLenth)
 
 int MergeSort(double *arr, int arrLenth)
 {
-	double *TR = new double[arrLenth];
+	double *TR = new double[arrLenth];			// 临时申请一段内存来存放数组
 	MSort(arr, TR, 0, arrLenth, arrLenth);
 
 	// 将TR数组里的还回arr中
@@ -242,6 +242,6 @@ int MergeSort(double *arr, int arrLenth)
 	{
 		arr[i] = TR[i];
 	}
-
+	delete[] TR;								// 释放申请的内存
 	return 0;
 }
