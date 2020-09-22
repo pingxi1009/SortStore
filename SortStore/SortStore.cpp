@@ -187,43 +187,44 @@ int HeapSort2(double *arr, int size)
 	return 0;
 }
 
-/***********  堆排序  ***********/
-int Merge(double *SR, double *TR, int i, int m, int n)
+/***********  归并排序  ***********/
+/******** 千万注意边界条件 ********/
+int Merge(double *SR, double *TR, int i, int m, int n, int arrMaxLenth)
 {
 	int j, k, e;
 	for (j = m+1 , k = i ; i <= m && j <= n ; k++)
 	{
-		if (SR[i] < SR[j])
-			TR[k] = SR[i++];
-		else
+		if (SR[i] > SR[j] && j < arrMaxLenth)
 			TR[k] = SR[j++];
+		else
+			TR[k] = SR[i++];
 	}
 	if (i <= m)
 	{
-		for (e = 0 ; e <= m - i ; e++)
-			TR[k + e] = SR[i + e];
+		for (e = 0 ; e <= m - i ; e++, k++)
+			TR[k] = SR[i + e];
 	}
-	if (j <= n)
+	if (j <= n && j < arrMaxLenth)
 	{
-		for (e = 0 ; e <= n - i ; e++)
-			TR[k + e] = SR[j + e];
+		for (e = 0 ; e <= n - j ; e++, k++)
+			TR[k] = SR[j + e];
 	}
 
 	return 0;
 }
 
-int MSort(double *SR, double *TR1, int s, int t)
+int MSort(double *SR, double *TR1, int s, int t, int arrMaxLenth)
 {
 	int m;
-	double *TR2 = new double[(t - s + 1) / 2];		// 本想定义数组，但是数组定义是长度必须是常量，所以参考网友的申请一段内存
-	if (s == t)
+	if (s == t && t < arrMaxLenth)
 		TR1[s] = SR[s];
-	else
+	else if(t > s)
 	{
+		double *TR2 = new double[t+1];		// 本想定义数组，但是数组定义是长度必须是常量，所以参考网友的申请一段内存
 		m = (s + t) / 2;
-		MSort(SR, TR2, s, m);
-		MSort(SR, TR2, m + 1, t);
-		Merge(TR2, TR1, s, m, t);
+		MSort(SR, TR2, s, m, arrMaxLenth);
+		MSort(SR, TR2, m + 1, t, arrMaxLenth);
+		Merge(TR2, TR1, s, m, t, arrMaxLenth);
 	}
 	
 	// delete[] TR2;
@@ -234,10 +235,11 @@ int MSort(double *SR, double *TR1, int s, int t)
 int MergeSort(double *arr, int arrLenth)
 {
 	double *TR = new double[arrLenth];
-	MSort(arr, TR, 0, arrLenth);
+	MSort(arr, TR, 0, arrLenth, arrLenth);
 
 	// 将TR数组里的还回arr中
-	for (int i = 0; i < arrLenth; i++)
+	int i;
+	for (i = 0; i < arrLenth; i++)
 	{
 		arr[i] = TR[i];
 	}
