@@ -225,9 +225,8 @@ int MSort(double *SR, double *TR1, int s, int t, int arrMaxLenth)
 		MSort(SR, TR2, s, m, arrMaxLenth);
 		MSort(SR, TR2, m + 1, t, arrMaxLenth);
 		Merge(TR2, TR1, s, m, t, arrMaxLenth);
+		delete[] TR2;
 	}
-	
-	// delete[] TR2;
 	return 0;
 }
 
